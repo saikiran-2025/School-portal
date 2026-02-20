@@ -10,7 +10,7 @@ const Upstupro = () => {
     const obj = useContext(Ct)
     const navigate = useNavigate()
     const facultyId = obj.user?.facultyid
-
+    const API_BASE = "https://school-portal-backend-2zcu.onrender.com"
     // 🔥 CLASS VALIDATION - 1 to 10 ONLY
     const isValidClass = (classValue) => {
         const num = parseInt(classValue)
@@ -45,7 +45,7 @@ const Upstupro = () => {
 
         try {
             const res = await axios.post(
-                `http://localhost:5000/facstupro/${data.hallticket}/${facultyId}`,
+                `${API_BASE}/facstupro/${data.hallticket}/${facultyId}`,
                 data
             )
 
