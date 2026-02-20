@@ -9,7 +9,7 @@ const Upfacpro = () => {
     let [msg, setMsg] = useState("")
     let obj = useContext(Ct)
     let navigate = useNavigate()
-    
+    const API_BASE = "https://school-portal-backend-2zcu.onrender.com"
     // ✅ Single input handler
     let fun = (e) => {
         setData({ ...data, [e.target.name]: e.target.value })
@@ -22,7 +22,7 @@ const Upfacpro = () => {
                 return setMsg("❌ Faculty ID & Name required!")
             }
 
-            let res = await axios.post(`http://localhost:5000/upfacpro/${data.facultyid}`, data) // Full profile data
+            let res = await axios.post(`${API_BASE}/upfacpro/${data.facultyid}`, data) // Full profile data
             
             if (res.data.msg?.includes("successfully") || res.data.msg?.includes("SUCCESSFULLY")) {
                 setMsg("✅ Profile created! Redirecting...")
