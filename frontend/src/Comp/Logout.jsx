@@ -7,7 +7,7 @@ import Ct from "./Ct.jsx"
 const Logout = () => {
     let navigate = useNavigate()
     let obj = useContext(Ct)
-    
+    const API_BASE = "https://school-portal-backend-2zcu.onrender.com"
     useEffect(() => {
         const quickLogout = async () => {
             try {
@@ -16,7 +16,7 @@ const Logout = () => {
                 
                 // 🔥 STEP 2: Call backend logout API
                 if (userId) {
-                    axios.post(`http://localhost:5000/logout/${userId}`)
+                    axios.post(`${API_BASE}/logout/${userId}`)
                         .catch(err => console.log("Logout API optional"))
                 }
                 
