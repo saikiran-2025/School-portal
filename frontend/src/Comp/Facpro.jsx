@@ -14,7 +14,7 @@ const Facpro = () => {
     const navigate = useNavigate()
     const obj = useContext(Ct)
     const facultyId = obj.user?.facultyid
-
+    const API_BASE = "https://school-portal-backend-2zcu.onrender.com"
     // ===== INPUT HANDLER =====
     const handleInputChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value })
@@ -30,7 +30,7 @@ const Facpro = () => {
     const loadProfile = async () => {
         setLoading(true)
         try {
-            const res = await axios.get(`http://localhost:5000/facpro/${facultyId}`)
+            const res = await axios.get(`${API_BASE}/facpro/${facultyId}`)
             if (res.data.profile) {
                 setData(res.data.profile)
                 setMsg(res.data.msg || "✅ Profile loaded successfully")
@@ -47,7 +47,7 @@ const Facpro = () => {
     const updateProfile = async () => {
         setLoading(true)
         try {
-            const res = await axios.put(`http://localhost:5000/facpro/${facultyId}`, { ...data })
+            const res = await axios.put(`${API_BASE}/facpro/${facultyId}`, { ...data })
             setF(!f)  // Refresh data
             setMsg(res.data.msg || "✅ Profile updated successfully")
         } catch (err) {
@@ -61,7 +61,7 @@ const Facpro = () => {
         if (window.confirm("⚠️ Delete your profile? This action cannot be undone!")) {
             setLoading(true)
             try {
-                const res = await axios.delete(`http://localhost:5000/facpro/${facultyId}`)
+                const res = await axios.delete(`${API_BASE}/facpro/${facultyId}`)
                 setMsg(res.data.msg || "✅ Profile deleted")
                 obj.setToken(null)
                 obj.setUser(null)
