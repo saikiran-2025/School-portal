@@ -9,7 +9,7 @@ const Login = () => {
 
   let obj=useContext(Ct)
   let navigate=useNavigate()
-
+  const API_BASE = "https://school-portal-backend-2zcu.onrender.com"
   let fun=(e)=>{
     let { name,value }=e.target
     setData({...data,[name]:value})
@@ -17,7 +17,7 @@ const Login = () => {
 
   let login=async()=>{
     try{
-      let res=await axios.post("http://localhost:5000/login",data)
+      let res=await axios.post(`${API_BASE}/login`,data)
 
       if(res.data.token!=undefined){
         obj.setToken(res.data.token)
