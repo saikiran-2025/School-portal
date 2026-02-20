@@ -14,7 +14,7 @@ const Upmarks = () => {
 
     const obj = useContext(Ct)
     const facultyId = obj.user?.facultyid
-
+    const API_BASE = "https://school-portal-backend-2zcu.onrender.com"
     // ================= SUBJECT LIST =================
     const getSubjectsByClass = (cls) => {
         if (parseInt(cls) <= 5) {
@@ -37,7 +37,7 @@ const Upmarks = () => {
         setMsg("🔄 Loading marks...")
 
         try {
-            const response = await axios.get(`http://localhost:5000/marks/${hallticket}/${facultyId}/${classNum}`)
+            const response = await axios.get(`${API_BASE}/marks/${hallticket}/${facultyId}/${classNum}`)
 
             const subjectList = getSubjectsByClass(classNum)
             setSubjects(subjectList)
@@ -94,7 +94,7 @@ const Upmarks = () => {
         const finalObj = calculateResult(marksObj)
 
         try {
-            await axios.post(`http://localhost:5000/marks/${hallticket}/${facultyId}/${classNum}`,{ marks: [finalObj] })
+            await axios.post(`${API_BASE}/marks/${hallticket}/${facultyId}/${classNum}`,{ marks: [finalObj] })
 
             setMarksData(finalObj)
             setMsg("✅ Marks uploaded successfully")
@@ -111,7 +111,7 @@ const Upmarks = () => {
         const finalObj = calculateResult(marksData)
 
         try {
-            await axios.put(`http://localhost:5000/marks/${hallticket}/${facultyId}/${classNum}`,{ marks: [finalObj] })
+            await axios.put(`${API_BASE}/marks/${hallticket}/${facultyId}/${classNum}`,{ marks: [finalObj] })
 
             setMarksData(finalObj)
             setIsEditMode(false)
@@ -128,7 +128,7 @@ const Upmarks = () => {
         if (!window.confirm(`Delete Class ${classNum} marks?`)) return
 
         try {
-            await axios.delete(`http://localhost:5000/marks/${hallticket}/${facultyId}/${classNum}`)
+            await axios.delete(`${API_BASE}/marks/${hallticket}/${facultyId}/${classNum}`)
 
             setMarksData(null)
             setInputMarks({})
