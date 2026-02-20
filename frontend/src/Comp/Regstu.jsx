@@ -3,7 +3,8 @@ import axios from 'axios'
 const Regstu = () => {
   let [data,setData]=useState({"hallticket":"","pwd":""})
   let [msg,setMsg]=useState("")
-
+  const API_BASE = "https://school-portal-backend-2zcu.onrender.com"
+  
   let fun=(e)=>{
     let {name,value}=e.target
     setData({...data,[name]:value})
@@ -11,7 +12,7 @@ const Regstu = () => {
 
   let reg=async()=>{
     try {
-      let res=await axios.post("http://localhost:5000/stureg",data)
+      let res=await axios.post(`${API_BASE}/stureg`,data)
 
       if (res.data.msg === "Student account created successfully") {
         setMsg(res.data.msg)
