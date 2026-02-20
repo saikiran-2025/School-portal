@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react'
 import {BrowserRouter,Routes,Route,Navigate} from "react-router-dom"
-import Login from './Comp/login.jsx'
+import Login from './Comp/Login.jsx'
 import Nav from './Comp/Nav.jsx'
 import Regstu from './Comp/Regstu.jsx'
 import Regfac from './Comp/Regfac.jsx'
