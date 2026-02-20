@@ -11,6 +11,7 @@ const Stupro = () => {
     let navigate = useNavigate()
     let [searchParams] = useSearchParams()
     let obj = useContext(Ct)
+    const API_BASE = "https://school-portal-backend-2zcu.onrender.com"
     
     const hallticket = obj.user?.hallticket || searchParams.get("hallticket") || ""
     
@@ -30,7 +31,7 @@ const Stupro = () => {
             return
         }
         
-        axios.get(`http://localhost:5000/stupro/${hallticket}`)
+        axios.get(`${API_BASE}/stupro/${hallticket}`)
             .then((res) => {
                 if (res.data.profile) {
                     setData(res.data.profile)
