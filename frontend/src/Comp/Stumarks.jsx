@@ -11,7 +11,7 @@ const Stumarks = () => {
     
     const obj = useContext(Ct)
     const hallticket = obj.user?.hallticket
-
+    const API_BASE = "https://school-portal-backend-2zcu.onrender.com"
     const fetchMarks = async (ht = hallticket) => {
         if (!ht) {
             setError("❌ Please login to view your marks!")
@@ -21,8 +21,8 @@ const Stumarks = () => {
         setLoading(true)
         setError("")
         try {
-            console.log("🔍 Fetching student marks:", `http://localhost:5000/marks/${ht}`)
-            const res = await axios.get(`http://localhost:5000/marks/${ht}`)
+            console.log("🔍 Fetching student marks:", `${API_BASE}/marks/${ht}`)
+            const res = await axios.get(`${API_BASE}/marks/${ht}`)
             console.log("✅ Student marks loaded:", res.data)
             setMarksData(res.data)
         } catch (err) {
