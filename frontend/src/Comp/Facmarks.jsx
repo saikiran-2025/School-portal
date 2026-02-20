@@ -10,7 +10,7 @@ const Facmarks = () => {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState("")
     const [hallticketInput, setHallticketInput] = useState("")
-    
+    const API_BASE = "https://school-portal-backend-2zcu.onrender.com"
     const obj = useContext(Ct)  // Logged-in faculty context
     const facultyid = obj.user?.facultyid  // ✅ AUTO from context
 
@@ -27,8 +27,8 @@ const Facmarks = () => {
         setLoading(true)
         setError("")
         try {
-            console.log("🔍 Fetching:", `http://localhost:5000/marks/${ht}/${facultyid}`)
-            const res = await axios.get(`http://localhost:5000/marks/${ht}/${facultyid}`)
+            console.log("🔍 Fetching:", `${API_BASE}/marks/${ht}/${facultyid}`)
+            const res = await axios.get(`${API_BASE}/marks/${ht}/${facultyid}`)
             console.log("✅ Response:", res.data)
             setMarksData(res.data)
         } catch (err) {
