@@ -10,7 +10,7 @@ const Ttstu = () => {
     
     const obj = useContext(Ct)
     const hallticket = obj.user?.hallticket  // Student must be logged in
-
+    const API_BASE = "https://school-portal-backend-2zcu.onrender.com"
     // ===== CORE FUNCTIONS =====
     const fetchAllTimetables = async () => {
         if (!hallticket) {
@@ -23,7 +23,7 @@ const Ttstu = () => {
         try {
             console.log("🔍 Fetching ALL timetables (student view)")
             // ✅ Use faculty endpoint for ALL classes (student authenticated)
-            const res = await axios.get("http://localhost:5000/ttfac/all")
+            const res = await axios.get(`${API_BASE}/ttfac/all`)
             console.log("✅ All timetables loaded:", res.data)
             setAllTimetables(res.data.timetables || [])
         } catch (err) {
