@@ -8,14 +8,14 @@ const Ttfac = () => {
     const [msg, setMsg] = useState("")
     const [editMode, setEditMode] = useState({})
     const [currentTT, setCurrentTT] = useState(null)
-    
+    const API_BASE = "https://school-portal-backend-2zcu.onrender.com"
     const obj = useContext(Ct)
     const facultyId = obj.user?.facultyid
 
     // ===== CORE FUNCTIONS =====
     const getAllTimetables = async () => {
         try {
-            const res = await axios.get("http://localhost:5000/ttfac/all")
+            const res = await axios.get(`${API_BASE}/ttfac/all`)
             setAllTimetables(res.data.timetables || [])
             setMsg(res.data.msg || "✅ All timetables loaded!")
         } catch (err) {
@@ -25,7 +25,7 @@ const Ttfac = () => {
 
     const updatePeriod = async (classNum, day, periodIndex, subject, time) => {
         try {
-            const res = await axios.put(`http://localhost:5000/ttfac/${classNum}/${day}/${periodIndex}/${facultyId}`,{ subject, time })
+            const res = await axios.put(`${API_BASE}/ttfac/${classNum}/${day}/${periodIndex}/${facultyId}`,{ subject, time })
             setMsg(res.data.msg)
             getAllTimetables() // Refresh after update
         } catch (err) {
