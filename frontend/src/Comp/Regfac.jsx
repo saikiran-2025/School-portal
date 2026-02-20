@@ -6,7 +6,8 @@ const Regfac = () => {
     let [data, setData] = useState({ "facultyid": "", "pwd": "" })
     let [msg, setMsg] = useState("")
     let navigate = useNavigate()
-
+    const API_BASE = "https://school-portal-backend-2zcu.onrender.com"
+    
     let fun = (e) => {
         let { name, value } = e.target
         setData({ ...data, [name]: value })
@@ -15,7 +16,7 @@ const Regfac = () => {
     let reg = async () => {
         try {
             // ✅ FIXED 1: HTTP (not HTTPS) + Correct URL
-            let res = await axios.post("http://localhost:5000/facreg", data)
+            let res = await axios.post(`${API_BASE}/facreg`, data)
 
             // ✅ FIXED 2: Handle BOTH msg AND err responses
             if (res.data.msg === "Faculty account created successfully") {
