@@ -1,0 +1,119 @@
+/* ================================= */
+/* ===== AJIO STYLE FOOTER ========= */
+/* ================================= */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.footer {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 50px 40px 20px 40px;
+  border-top: 1px solid #e5e5e5;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #000000;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* ===== TITLE SECTION ===== */
+.title {
+  flex: 1;
+  min-width: 280px;
+}
+
+.title h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.title p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #555555;
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact {
+  flex: 1;
+  min-width: 200px;
+}
+
+.contact p {
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #444444;
+}
+
+.contact strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+/* ===== FOLLOW SECTION ===== */
+.follow {
+  flex: 1;
+  min-width: 200px;
+}
+
+.follow p strong {
+  font-size: 15px;
+}
+
+.icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 12px;
+}
+
+/* ===== SOCIAL ICON STYLE ===== */
+.icon {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+/* Hover Effect */
+.icon:hover {
+  background-color: #000000;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+/* ===== BOTTOM COPYRIGHT ===== */
+.bottom {
+  width: 100%;
+  border-top: 1px solid #e5e5e5;
+  margin-top: 40px;
+  padding-top: 15px;
+  text-align: center;
+}
+
+.bottom p {
+  font-size: 13px;
+  color: #777777;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    padding: 40px 20px 20px 20px;
+  }
+
+  .bottom {
+    margin-top: 30px;
+  }
+}

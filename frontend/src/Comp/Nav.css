@@ -1,0 +1,113 @@
+/* ================================= */
+/* ===== AJIO STYLE NAVBAR ========= */
+/* ================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.school-nav {
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28px 20px 15px 20px;
+  border-bottom: 1px solid #e5e5e5;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ===== SCHOOL INFO (CENTERED) ===== */
+.school-info {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.school-name {
+  font-size: 32px;
+  font-weight: 700;
+  color: #000000;
+  letter-spacing: 1px;
+}
+
+.school-address {
+  font-size: 13px;
+  color: #777777;
+  margin-top: 6px;
+}
+
+/* ===== NAV LINKS SECTION ===== */
+.nav-links {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  flex-wrap: wrap;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* ===== NAV LINKS ===== */
+.nav-links a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000000;
+  position: relative;
+  transition: all 0.3s ease;
+  padding: 6px 0;
+}
+
+/* Minimal Underline Animation */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #000000;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: #555555;
+}
+
+/* Click Effect */
+.nav-links a:active {
+  transform: scale(0.95);
+}
+
+.school-nav {
+  border-bottom: 2px solid #000000;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .school-name {
+    font-size: 24px;
+  }
+
+  .nav-links {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .nav-links a {
+    font-size: 15px;
+  }
+}
